@@ -1,0 +1,45 @@
+# brew packages are packages for the command line
+brew_packages:
+- asciidoctor
+- awscli
+- btop
+- colordiff
+- eza
+- fd
+- git
+- git-delta
+- gcloud-cli
+- graphviz
+- htop
+- hugo
+- imagemagick
+- jq
+- lynx
+- mutt
+- nmap
+- nvim
+- oathtool
+- opentofu
+- plantuml
+- pgcli
+- ripgrep
+- stow
+- tree
+- uuid
+- whois
+- zoxide
+
+# brew casks are visual programms
+brew_casks:
+- alacritty
+- enpass
+- firefox@developer-edition
+- gimp
+- gnucash
+- kitty
+- spotify
+- ungoogled-chromium
+
+# mas apps are apps from the apple app-store
+mas_apps: []
+

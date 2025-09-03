@@ -1,0 +1,23 @@
+- name: Ensure tools to add additional apt sources
+  tags: [repos]
+  become: yes
+  package:
+    name:
+    - ca-certificates
+    - curl
+    - gnupg
+    state: present
+    update_cache: true
+
+- name: Ensure additional apt sources
+  tags: [repos]
+  include_tasks: 3rd-party-apt-repository.yml
+  loop: "{{ apt_repositories }}"
+
+- name: Ensure system packages
+  become: yes
+  tags: [packages]
+  apt:
+    name: "{{ apt_packages }}"
+    state: present
+    update_cache: true

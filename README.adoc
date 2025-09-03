@@ -1,0 +1,32 @@
+= My dev-machine setup
+:source-highlighter: rouge
+
+This ansible-playbook will setup my development machines and prepare them for work.
+
+== Prepararation
+The setup is a bit different for linux and macos, since I can use the local package-manager on linux.
+Though on macos I need to install `brew` first!
+In both cases we need to install `ansible` and `git` though.
+
+.Prepararation on Debian and Ubuntu
+[source,bash]
+----
+sudo apt install ansible git
+----
+
+.Prepararation on macos
+[source,bash]
+----
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install ansible git
+----
+
+== Setup
+The setup is simple:
+
+[source,bash]
+----
+git clone git@gitea.nehrke.info:nemoinho/dev-machine.git ~/Development/dev-machine
+cd $_
+ansible-playbook main.yml
+----

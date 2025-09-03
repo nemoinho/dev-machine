@@ -1,0 +1,141 @@
+apt_packages:
+- alacritty
+- arandr
+- asciidoctor
+- autoconf
+- autorandr
+- bash-completion
+- btop
+- build-essential
+- chromium-browser
+- colordiff
+- compton
+- enpass
+- eza
+- fd-find
+- feh
+- firefox-devedition
+- gcc
+- gimp
+- git
+- git-delta
+- google-cloud-cli
+- graphviz
+- htop
+- hugo
+- hyphen-de
+- i3
+- imagemagick
+- jq
+- kitty
+- libcairo2-dev
+- libev-dev
+- libfontconfig1-dev
+- libgif-dev
+- libjpeg-dev
+- libpam0g-dev
+- libreoffice
+- libreoffice-l10n-de
+- libssl-dev
+- libx11-xcb-dev
+- libxcb-composite0-dev
+- libxcb-image0-dev
+- libxcb-randr0-dev
+- libxcb-util-dev
+- libxcb-xinerama0-dev
+- libxcb-xkb-dev
+- libxcb-xrm-dev
+- libxkbcommon-dev
+- libxkbcommon-x11-dev
+- lm-sensors
+- lsb-release
+- lynx
+- make
+- meld
+- mutt
+- mythes-de
+- mythes-en-us
+- nala
+- ncal
+- neovim
+- nmap
+- oathtool
+- openssl
+- pavucontrol
+- pgcli
+- pkg-config
+- plantuml
+- podman
+- podman-compose
+- polybar
+- pulseaudio-utils
+- ripgrep
+- rofi
+- ruby-asciidoctor-kroki
+- ruby-asciidoctor-pdf
+- ruby-asciidoctor-plantuml
+- ruby-coderay
+- ruby-pygments.rb
+- ruby-rouge
+- tofu
+- tree
+- spotify-client
+- stow
+- uuid
+- whois
+- zoxide
+
+# not all software can be found in standard apt...
+apt_repositories:
+# Important: when a repo has more than _one_ key each key requires a name!!
+- name: enpass
+  sign_keys:
+  - url: https://apt.enpass.io/keys/enpass-linux.key
+  repositories: https://apt.enpass.io/
+
+- name: spotify
+  sign_keys:
+  - url: https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg
+  repositories: https://repository.spotify.com/
+  components: non-free
+
+- name: opentofu
+  sign_keys:
+  - url: https://get.opentofu.org/opentofu.gpg
+    name: opentofu
+    format: gpg
+  - url: https://packages.opentofu.org/opentofu/tofu/gpgkey
+    name: opentofu-repo
+  repositories: https://packages.opentofu.org/opentofu/tofu/any/
+  suites: "any"
+  types:
+  - deb
+  - deb-src
+
+- name: hashicorp
+  sign_keys:
+  - url: https://apt.releases.hashicorp.com/gpg
+  repositories: https://apt.releases.hashicorp.com/
+  suites: "{{ ansible_distribution_release | lower }}"
+
+- name: google-cloud-sdk
+  sign_keys:
+  - url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  repositories: https://packages.cloud.google.com/apt/
+  suites: cloud-sdk
+
+- name: neovim
+  sign_keys:
+  - url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9dbb0be9366964f134855e2255f96fcf8231b6dd
+  repositories: https://ppa.launchpadcontent.net/neovim-ppa/unstable/ubuntu
+  suites: "{{ ansible_distribution_release | lower }}"
+  types:
+  - deb
+  - deb-src
+
+- name: mozilla
+  sign_keys:
+  - url: https://packages.mozilla.org/apt/repo-signing-key.gpg
+  repositories: https://packages.mozilla.org/apt/
+  suites: "mozilla"
+

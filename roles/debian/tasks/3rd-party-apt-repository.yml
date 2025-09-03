@@ -1,0 +1,25 @@
+- name: "Download key for {{ item.name }}"
+  become: yes
+  get_url:
+    url: "{{ key.url }}"
+    dest: "/etc/apt/keyrings/{{ key.name | default(item.name) }}.{{ key.format | default('asc') }}"
+    mode: u=rw,g=r,o=r
+  loop: "{{ item.sign_keys }}"
+  loop_control:
+    loop_var: key
+
+- name: "Setup apt repository for {{ item.name }}"
+  become: yes
+  deb822_repository:
+    name: "{{ item.name }}"
+    types: "{{ item.types | default('deb') }}"
+    uris: "{{ item.repositories }}"
+    suites: "{{ item.suites | default('stable') }}"
+    components: "{{ item.components | default('main') }}"
+    architectures: "{{ item.arch | default([ansible_architecture] | map('extract', deb_architecture) | first) }}"
+    # Note, the ugliness is needed since jinja2 makes it invalid otherwise
+    signed_by: "{%- set output = [] %}
+        {%- for result in item.sign_keys %}
+          {{- output.append('/etc/apt/keyrings/' ~ (result.name | default(item.name)) ~ '.' ~ (result.format | default('asc'))) }}
+        {%- endfor %}
+      {{- output | join(',') -}}"

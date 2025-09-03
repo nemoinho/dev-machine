@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  vars_files:
+  - debian.config.yml
+  - macos.config.yml
+  roles:
+  - role: roles/macos
+    tags: [macos]
+    when: ansible_os_family == 'Darwin'
+  - role: roles/debian
+    tags: [debian]
+    when: ansible_os_family == 'Debian'

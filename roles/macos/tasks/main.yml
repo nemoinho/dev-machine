@@ -1,0 +1,12 @@
+- name: "Ensure brew-packages"
+  tags: [packages]
+  homebrew:
+    name: "{{ item }}"
+  loop: "{{ brew_packages }}"
+
+- name: "Ensure brew casks"
+  tags: [packages]
+  homebrew_cask:
+    name: "{{ item }}"
+  loop: "{{ brew_casks }}"
+
