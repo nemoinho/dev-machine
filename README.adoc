@@ -26,7 +26,7 @@ The setup is simple:
 
 [source,bash]
 ----
-git clone git@gitea.nehrke.info:nemoinho/dev-machine.git ~/Development/dev-machine
+git clone git@gitea.nehrke.info:nemoinho/dev-machine.git ~/Development/nemoinho/dev-machine
 cd $_
 ansible-playbook main.yml
 ----
