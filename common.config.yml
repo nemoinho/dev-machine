@@ -1,0 +1,4 @@
+fly_url_linux: https://ci.nehrke.info/api/v1/cli?arch=amd64&platform=linux
+fly_url_darwin: https://ci.nehrke.info/api/v1/cli?arch=amd64&platform=darwin
+fly_url: "{{ fly_url_darwin if ansible_os_family == 'Darwin' else fly_url_linux }}"
+

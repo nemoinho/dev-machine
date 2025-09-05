@@ -3,6 +3,7 @@
   vars_files:
   - debian.config.yml
   - macos.config.yml
+  - common.config.yml
   roles:
   - role: roles/macos
     tags: [macos]
@@ -10,3 +11,14 @@
   - role: roles/debian
     tags: [debian]
     when: ansible_os_family == 'Debian'
+  tasks:
+  - name: Dump hostvars
+    tags: [never, dump]
+    debug:
+      var: hostvars[inventory_hostname]
+  - name: Ensure fly
+    tags: [packages]
+    get_url:
+      url: "{{ fly_url }}"
+      dest: "{{ lookup('env', 'HOME') }}/.local/bin/fly"
+      mode: "u=rwx,g=rx,o=rx"

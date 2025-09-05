@@ -14,6 +14,9 @@ brew_packages:
 - hugo
 - imagemagick
 - jq
+- k9s
+- kubernetes-cli
+- lesspipe
 - lynx
 - mutt
 - nmap

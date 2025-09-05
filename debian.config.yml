@@ -1,3 +1,6 @@
+deb_packages:
+- https://github.com/derailed/k9s/releases/latest/download/k9s_linux_amd64.deb
+
 apt_packages:
 - alacritty
 - arandr
@@ -28,6 +31,7 @@ apt_packages:
 - imagemagick
 - jq
 - kitty
+- kubectl
 - libcairo2-dev
 - libev-dev
 - libfontconfig1-dev
