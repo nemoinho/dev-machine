@@ -23,6 +23,7 @@ apt_packages:
 - gimp
 - git
 - git-delta
+- google-chrome-stable
 - google-cloud-cli
 - graphviz
 - htop
@@ -146,4 +147,9 @@ apt_repositories:
   - url: https://packages.mozilla.org/apt/repo-signing-key.gpg
   repositories: https://packages.mozilla.org/apt/
   suites: "mozilla"
+
+- name: google
+  sign_keys:
+  - url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+  repositories: http://dl.google.com/linux/chrome/deb/
 

@@ -36,9 +36,11 @@ brew_packages:
 brew_casks:
 - alacritty
 - enpass
+- firefox
 - firefox@developer-edition
 - gimp
 - gnucash
+- google-chrome
 - kitty
 - spotify
 - ungoogled-chromium
