@@ -17,6 +17,7 @@ apt_packages:
 - eza
 - fd-find
 - feh
+- firefox
 - firefox-devedition
 - gcc
 - gimp
