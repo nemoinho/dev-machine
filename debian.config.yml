@@ -63,8 +63,11 @@ apt_packages:
 - nala
 - ncal
 - neovim
+- network-manager-openconnect
+- network-manager-openconnect-gnome
 - nmap
 - oathtool
+- openconnect
 - openssl
 - pavucontrol
 - pgcli
@@ -82,10 +85,10 @@ apt_packages:
 - ruby-coderay
 - ruby-pygments.rb
 - ruby-rouge
-- tofu
-- tree
 - spotify-client
 - stow
+- tofu
+- tree
 - uuid
 - whois
 - zoxide
