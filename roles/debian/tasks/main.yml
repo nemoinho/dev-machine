@@ -14,13 +14,18 @@
   include_tasks: 3rd-party-apt-repository.yml
   loop: "{{ apt_repositories }}"
 
+- name: Ensure apt is update to date
+  become: yes
+  tags: [packages, repos]
+  apt:
+    update_cache: yes
+
 - name: Ensure system packages
   become: yes
   tags: [packages]
   apt:
     name: "{{ apt_packages }}"
     state: present
-    update_cache: true
 
 - name: "Ensure deb-packages are installed"
   become: yes
