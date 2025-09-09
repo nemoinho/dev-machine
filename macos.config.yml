@@ -2,6 +2,7 @@
 brew_packages:
 - asciidoctor
 - awscli
+- bind
 - btop
 - colordiff
 - eza

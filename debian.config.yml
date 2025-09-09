@@ -8,6 +8,7 @@ apt_packages:
 - autoconf
 - autorandr
 - bash-completion
+- bind9-dnsutils
 - btop
 - build-essential
 - chromium-browser
