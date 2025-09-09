@@ -91,6 +91,8 @@ apt_packages:
 - tofu
 - tree
 - uuid
+- xsel
+- xclip
 - whois
 - zoxide
 
