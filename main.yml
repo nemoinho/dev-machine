@@ -40,3 +40,9 @@
       token: "{{ gitea_token }}"
       pubkey: "{{ lookup('file', lookup('env', 'HOME') ~ '/.ssh/id_ed25519.pub') }}"
       api_url: "{{ gitea_api_url }}"
+
+  - name: Ensure dotfiles directory
+    tags: [dotfiles]
+    git:
+      repo: git@gitea.nehrke.info:nemoinho/dotfiles.git
+      dest: "{{ lookup('env', 'HOME') ~ '/dotfiles' }}"
