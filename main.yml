@@ -18,3 +18,25 @@
       url: "{{ fly_url }}"
       dest: "{{ lookup('env', 'HOME') }}/.local/bin/fly"
       mode: "u=rwx,g=rx,o=rx"
+
+  - name: Ensure ssh keypair
+    tags: [ssh]
+    openssh_keypair:
+      path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+      type: ed25519
+      regenerate: full_idempotence
+
+  - name: Ensure ssh key on github
+    tags: [ssh,git]
+    github_key:
+      name: "{{ lookup('env', 'USER') }}@{{ hostname }}"
+      token: "{{ github_token }}"
+      pubkey: "{{ lookup('file', lookup('env', 'HOME') ~ '/.ssh/id_ed25519.pub') }}"
+
+  - name: Ensure ssh key on gitea
+    tags: [ssh, git]
+    github_key:
+      name: "{{ lookup('env', 'USER') }}@{{ hostname }}"
+      token: "{{ gitea_token }}"
+      pubkey: "{{ lookup('file', lookup('env', 'HOME') ~ '/.ssh/id_ed25519.pub') }}"
+      api_url: "{{ gitea_api_url }}"
