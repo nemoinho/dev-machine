@@ -1,9 +1,5 @@
 ---
 - hosts: localhost
-  vars_files:
-  - debian.config.yml
-  - macos.config.yml
-  - common.config.yml
   roles:
   - role: roles/macos
     tags: [macos]
