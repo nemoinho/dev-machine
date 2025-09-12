@@ -1,3 +1,8 @@
+- name: Ensure correct hostname
+  hostname:
+    name: "{{ hostname }}"
+    use: macos
+
 - name: "Ensure brew-packages"
   tags: [packages]
   homebrew:

@@ -1,5 +1,6 @@
 = My dev-machine setup
 :source-highlighter: rouge
+:icons: font
 
 This ansible-playbook will setup my development machines and prepare them for work.
 
@@ -14,7 +15,7 @@ In both cases we need to install `ansible` and `git` though.
 sudo apt install ansible git
 ----
 
-.Prepararation on macos
+.Prepararation on Macos
 [source,bash]
 ----
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -22,7 +23,19 @@ brew install ansible git
 ----
 
 == Setup
-The setup is simple:
+Make sure to configure the local environment:
+This is done by copying `global_vars/localhost/local.config.yml.tpl` to `global_vars/localhost/local.config.yml` and adjust it to the local conditions.
+
+[source,bash]
+----
+cp global_vars/localhost/local.config.yml.tpl global_vars/localhost/local.config.yml
+vi $_
+----
+
+[NOTE]
+We do not have installed anything yet, so we can only use the available tools of the environment.
+
+After the configuration the setup is very simple:
 
 [source,bash]
 ----
