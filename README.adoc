@@ -22,33 +22,28 @@ sudo apt install ansible git
 brew install ansible git
 ----
 
-=== password.txt
-To execute the playbook we need a password for the vault.
-This password has to be stored in a `password.txt` containing exactly one line with only the password as content.
+== Setup
+The setup is very simple, just follow these steps and you're good to go:
+
+[source,bash]
+----
+git clone https://gitea.nehrke.info/nemoinho/dev-machine.git ~/Development/nemoinho/dev-machine # <1>
+cd $_
+cp global_vars/localhost/local.config.yml.tpl global_vars/localhost/local.config.yml # <2>
+vi $_ # <3>
+vi password.txt # <4>
+ansible-galaxy install -r requirements.yml --upgrade # <5>
+ansible-playbook main.yml # <6>
+git remote set-url origin git@gitea.nehrke.info:nemoinho/dev-machine.git # <7>
+----
+
+<1> Clone this repo into a suitable local directory (we use http since ssh is not ready yet)
+<2> Configure the local environment
+<3> Note, that haven't installed anything yet, so use the available tools!
+<4> Provide the password for the ansible-vault, make sure the file only has one the password inside, nothing else
+<5> Install further ansible-requirements
+<6> Run the playbook that setup my system
+<7> Adjust the git-url of this repo to use ssh, which is way more convenient
 
 [NOTE]
 Use a secure password and keep it in a password-manager.
-
-== Setup
-Make sure to configure the local environment:
-This is done by copying `global_vars/localhost/local.config.yml.tpl` to `global_vars/localhost/local.config.yml` and adjust it to the local conditions.
-
-[source,bash]
-----
-cp global_vars/localhost/local.config.yml.tpl global_vars/localhost/local.config.yml
-vi $_
-----
-
-[NOTE]
-We do not have installed anything yet, so we can only use the available tools of the environment.
-
-After the configuration the setup is very simple:
-
-[source,bash]
-----
-git clone git@gitea.nehrke.info:nemoinho/dev-machine.git ~/Development/nemoinho/dev-machine
-cd $_
-# make sure that we're on the latest requirements
-ansible-galaxy install -r requirements.yml --upgrade
-ansible-playbook main.yml
-----
