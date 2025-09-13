@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
+  vars_files:
+  - local.config.yml
   roles:
   - role: roles/macos
     tags: [macos]

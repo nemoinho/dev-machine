@@ -1,6 +1,6 @@
 *.html
 *.pdf
-group_vars/*/local.config.yml
+local.config.yml
 password.txt
 
 # Created by https://www.toptal.com/developers/gitignore/api/vim,intellij
