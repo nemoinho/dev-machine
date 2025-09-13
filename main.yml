@@ -9,6 +9,8 @@
     when: ansible_os_family == 'Debian'
   - role: roles/ssh
     tags: [ssh]
+  - role: roles/dotfiles
+    tags: [dotfiles]
   tasks:
   - name: Dump hostvars
     tags: [never, dump]
