@@ -24,4 +24,7 @@
       url: "{{ fly_url }}"
       dest: "{{ lookup('env', 'HOME') }}/.local/bin/fly"
       mode: "u=rwx,g=rx,o=rx"
+  - name: Ensure helm diff
+    tags: [packages]
+    shell: helm plugin install https://github.com/databus23/helm-diff
 

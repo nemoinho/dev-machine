@@ -11,6 +11,7 @@ brew_packages:
 - git-delta
 - gcloud-cli
 - graphviz
+- helm
 - htop
 - hugo
 - imagemagick

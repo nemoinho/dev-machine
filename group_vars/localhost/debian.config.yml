@@ -27,6 +27,7 @@ apt_packages:
 - google-chrome-stable
 - google-cloud-cli
 - graphviz
+- helm
 - htop
 - hugo
 - hyphen-de
@@ -156,3 +157,8 @@ apt_repositories:
   - url: https://dl-ssl.google.com/linux/linux_signing_key.pub
   repositories: http://dl.google.com/linux/chrome/deb/
 
+- name: helm
+  sign_keys:
+  - url: https://packages.buildkite.com/helm-linux/helm-debian/gpgkey
+  repositories: https://packages.buildkite.com/helm-linux/helm-debian/any
+  suites: "any"
