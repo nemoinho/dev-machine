@@ -80,6 +80,7 @@ apt_packages:
 - podman-compose
 - polybar
 - pulseaudio-utils
+- python3-kubernetes
 - ripgrep
 - rofi
 - ruby-asciidoctor-kroki
