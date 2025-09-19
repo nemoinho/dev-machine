@@ -1,6 +1,7 @@
 = My dev-machine setup
 :source-highlighter: rouge
 :icons: font
+:experimental: yes
 
 This ansible-playbook will setup my development machines and prepare them for work.
 
@@ -47,3 +48,7 @@ git remote set-url origin git@gitea.nehrke.info:nemoinho/dev-machine.git # <7>
 
 [NOTE]
 Use a secure password and keep it in a password-manager.
+
+== Cheat-Sheet
+
+* The shortcut kbd:[Fn+1] toggles fans 100% (http://reddit.com/r/System76/comments/ol9a60[Ref])
