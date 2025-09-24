@@ -81,6 +81,7 @@ apt_packages:
 - polybar
 - pulseaudio-utils
 - python3-kubernetes
+- qemu-user-static
 - ripgrep
 - rofi
 - ruby-asciidoctor-kroki
