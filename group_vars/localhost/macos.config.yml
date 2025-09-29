@@ -5,6 +5,7 @@ brew_packages:
 - bind
 - btop
 - colordiff
+- direnv
 - eza
 - fd
 - git
