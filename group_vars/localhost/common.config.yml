@@ -5,3 +5,9 @@ fly_url: "{{ fly_url_darwin if ansible_os_family == 'Darwin' else fly_url_linux 
 gitea_token: "{{ vault_gitea_token }}"
 gitea_api_url: "https://gitea.nehrke.info/api/v1"
 github_token: "{{ vault_github_token }}"
+
+enpass_cli_version: 1.6.5
+enpass_cli_url_linux: https://github.com/hazcod/enpass-cli/releases/download/v{{ enpass_cli_version }}/enpass-cli_{{ enpass_cli_version }}_linux_amd64.zip
+enpass_cli_url_darwin: https://github.com/hazcod/enpass-cli/releases/download/v{{ enpass_cli_version }}/enpass-cli_{{ enpass_cli_version }}_darwin_arm64.zip
+enpass_cli_url: "{{ enpass_cli_url_darwin if ansible_os_family == 'Darwin' else enpass_cli_url_linux }}"
+enpass_cli_dir: "enpass-cli_{{ enpass_cli_version}}_{{ 'darwin_arm64' if ansible_os_family == 'Darwin' else 'linux_amd64' }}"

@@ -35,7 +35,7 @@
     shell: podman run --rm --privileged docker.io/multiarch/qemu-user-static --reset -p yes
     when: ansible_os_family == 'Debian'
   - name: Ensure enpass-cli
-    tags: [packages,enpass]
+    tags: [packages]
     block:
     - name: Ensure .local/opt/enpass-cli dir
       file:

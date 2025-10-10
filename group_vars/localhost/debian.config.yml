@@ -73,6 +73,7 @@ apt_packages:
 - oathtool
 - openconnect
 - openssl
+- pandoc
 - pavucontrol
 - pgcli
 - pkg-config

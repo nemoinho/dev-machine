@@ -26,6 +26,7 @@ brew_packages:
 - nvim
 - oathtool
 - opentofu
+- pandoc
 - plantuml
 - pgcli
 - ripgrep
