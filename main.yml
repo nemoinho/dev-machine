@@ -26,10 +26,28 @@
       mode: "u=rwx,g=rx,o=rx"
   - name: Ensure helm diff
     tags: [packages]
-    shell: helm plugin install https://github.com/databus23/helm-diff
+    kubernetes.core.helm_plugin:
+      plugin_path: https://github.com/databus23/helm-diff
+      state: present
   - name: Configure QEMU for multiarch podman builds
     tags: [packages]
     become: yes
     shell: podman run --rm --privileged docker.io/multiarch/qemu-user-static --reset -p yes
     when: ansible_os_family == 'Debian'
-
+  - name: Ensure enpass-cli
+    tags: [packages,enpass]
+    block:
+    - name: Ensure .local/opt/enpass-cli dir
+      file:
+        path: "{{ lookup('env', 'HOME') }}/.local/opt/enpass-cli"
+        state: directory
+    - name: Ensure full enpass-cli package
+      unarchive:
+        src: "{{ enpass_cli_url }}"
+        dest: "{{ lookup('env', 'HOME') }}/.local/opt/enpass-cli"
+        remote_src: yes
+    - name: Ensure enpasscli binary link
+      file:
+        src: "{{ lookup('env', 'HOME') }}/.local/opt/enpass-cli/{{ enpass_cli_dir }}/enpasscli"
+        dest: "{{ lookup('env', 'HOME') }}/.local/bin/enpasscli"
+        state: link
