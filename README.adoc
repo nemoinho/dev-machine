@@ -41,7 +41,7 @@ git remote set-url origin git@gitea.nehrke.info:nemoinho/dev-machine.git # <7>
 <1> Clone this repo into a suitable local directory (we use http since ssh is not ready yet)
 <2> Configure the local environment
 <3> Note, that haven't installed anything yet, so use the available tools!
-<4> Provide the password for the ansible-vault, make sure the file only has one the password inside, nothing else
+<4> Provide the password for the ansible-vault, make sure the file only has the password inside, nothing else
 <5> Install further ansible-requirements
 <6> Run the playbook that setup my system
 <7> Adjust the git-url of this repo to use ssh, which is way more convenient
