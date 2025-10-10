@@ -97,6 +97,7 @@ apt_packages:
 - stow
 - tofu
 - tree
+- urlscan
 - uuid
 - xsel
 - xclip

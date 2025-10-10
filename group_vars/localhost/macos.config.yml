@@ -33,6 +33,7 @@ brew_packages:
 - ripgrep
 - stow
 - tree
+- urlscan
 - uuid
 - whois
 - zoxide
