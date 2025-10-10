@@ -21,10 +21,11 @@ brew_packages:
 - kubernetes-cli
 - lesspipe
 - lynx
-- mutt
+- neomutt
 - nmap
 - nvim
 - oathtool
+- offlineimap
 - opentofu
 - pandoc
 - plantuml
