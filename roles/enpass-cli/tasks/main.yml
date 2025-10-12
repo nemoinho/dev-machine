@@ -1,0 +1,16 @@
+- name: Ensure .local/opt/enpass-cli dir
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.local/opt/enpass-cli"
+    state: directory
+
+- name: Ensure full enpass-cli package
+  unarchive:
+    src: "{{ enpass_cli_url }}"
+    dest: "{{ lookup('env', 'HOME') }}/.local/opt/enpass-cli"
+    remote_src: yes
+
+- name: Ensure enpasscli binary link
+  file:
+    src: "{{ lookup('env', 'HOME') }}/.local/opt/enpass-cli/{{ enpass_cli_dir }}/enpasscli"
+    dest: "{{ lookup('env', 'HOME') }}/.local/bin/enpasscli"
+    state: link
