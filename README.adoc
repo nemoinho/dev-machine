@@ -49,6 +49,20 @@ git remote set-url origin git@gitea.nehrke.info:nemoinho/dev-machine.git # <7>
 [NOTE]
 Use a secure password and keep it in a password-manager.
 
+== Available tags
+To restrict the scope of execution the playbook uses a couple of tags as described in the following table:
+
+[%autowidth.stretch]
+|===
+| Tag | Scope description
+
+| repos | Install 3rd party apt-repositories (only useful on linux)
+| packages | Install system-packages
+| dotfiles | Install my dotfiles and apply them
+| ssh | Ensure a default SSH-key and provide it to gitea and github
+| dump | Print out debug information
+|===
+
 == Cheat-Sheet
 
 * The shortcut kbd:[Fn+1] toggles fans 100% (http://reddit.com/r/System76/comments/ol9a60[Ref])
