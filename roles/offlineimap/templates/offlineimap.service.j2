@@ -1,0 +1,10 @@
+[Unit]
+Description=Run offlineimap in the background for {{ ansible_user_id }}
+
+[Service]
+User={{ ansible_user_id }}
+SetCredentialEncrypted=enpass-password: {{ encrypted_enpass_password.value | replace("\n", " ") }}
+ExecStart=bash -c 'source ~/.profile && MASTERPW="$(systemd-creds cat enpass-password)" ~/.local/bin/offlineimap'
+
+[Install]
+WantedBy=graphical.target

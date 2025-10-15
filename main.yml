@@ -15,6 +15,9 @@
     tags: [dotfiles]
   - role: roles/enpass-cli
     tags: [packages]
+  - role: roles/offlineimap
+    tags: [offlineimap, services, never]
+    when: ansible_os_family == 'Debian'
   tasks:
   - name: Dump hostvars
     tags: [never, dump]

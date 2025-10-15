@@ -1,0 +1,20 @@
+- name: Ensure systemd-creds for offlineimap
+  become: yes
+  community.general.systemd_creds_encrypt:
+    name: enpass-password
+    secret: "{{ enpass_password }}"
+  register: encrypted_enpass_password
+
+- name: Ensure systemd service file for offlineimap
+  become: yes
+  template:
+    src: offlineimap.service.j2
+    dest: /lib/systemd/system/offlineimap.service
+  notify: Reload systemd-units
+
+- name: Ensure offlineimap service is running
+  become: yes
+  service:
+    name: offlineimap
+    state: started
+    enabled: yes

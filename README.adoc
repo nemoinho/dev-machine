@@ -60,6 +60,7 @@ To restrict the scope of execution the playbook uses a couple of tags as describ
 | packages | Install system-packages
 | dotfiles | Install my dotfiles and apply them
 | ssh | Ensure a default SSH-key and provide it to gitea and github
+| offlineimap | Setup systemd-service for offlineimap on debian. This needs to be explicitly defined, since Enpass has to be setup first!
 | dump | Print out debug information
 |===
 
