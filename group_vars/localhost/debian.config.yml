@@ -102,6 +102,10 @@ apt_packages:
 - xsel
 - xclip
 - whois
+- zathura
+- zathura-djvu
+- zathura-pdf-poppler
+- zathura-ps
 - zoxide
 
 # not all software can be found in standard apt...
