@@ -3,6 +3,11 @@
 :icons: font
 :experimental: yes
 
+ifdef::env-github[]
+NOTE: This is only *a mirror* from my https://gitea.nehrke.info/nemoinho/dev-machine[personal git-server].
+endif::[]
+
+[abstract]
 This ansible-playbook will setup my development machines and prepare them for work.
 
 == Prepararation
