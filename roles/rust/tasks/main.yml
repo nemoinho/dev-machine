@@ -1,0 +1,9 @@
+- name: Check if rustup is installed already
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/.local/share/cargo/bin/rustup"
+  register: rustup_status
+
+- name: Ensure rustup
+  # Note, that the path is not modified, since my dotfiles setup did that already!
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  when: not rustup_status.stat.exists

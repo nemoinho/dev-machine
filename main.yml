@@ -18,6 +18,8 @@
   - role: roles/offlineimap
     tags: [offlineimap, services, never]
     when: ansible_os_family == 'Debian'
+  - role: roles/rust
+    tags: [packages]
   tasks:
   - name: Dump hostvars
     tags: [never, dump]
