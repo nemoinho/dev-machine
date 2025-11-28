@@ -22,16 +22,13 @@
     tags: [packages]
   - role: roles/fly
     tags: [packages]
+  - role: roles/helm-diff
+    tags: [packages]
   tasks:
   - name: Dump hostvars
     tags: [never, dump]
     debug:
       var: hostvars[inventory_hostname]
-  - name: Ensure helm diff
-    tags: [packages]
-    kubernetes.core.helm_plugin:
-      plugin_path: https://github.com/databus23/helm-diff
-      state: present
   - name: Configure QEMU for multiarch podman builds
     tags: [packages]
     become: yes
