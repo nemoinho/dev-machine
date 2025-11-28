@@ -24,13 +24,10 @@
     tags: [packages]
   - role: roles/helm-diff
     tags: [packages]
+  - role: roles/multiarch-container-builds
+    tags: [packages]
   tasks:
   - name: Dump hostvars
     tags: [never, dump]
     debug:
       var: hostvars[inventory_hostname]
-  - name: Configure QEMU for multiarch podman builds
-    tags: [packages]
-    become: yes
-    shell: podman run --rm --privileged docker.io/multiarch/qemu-user-static --reset -p yes
-    when: ansible_os_family == 'Debian'
