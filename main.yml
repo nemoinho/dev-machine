@@ -20,17 +20,13 @@
     when: ansible_os_family == 'Debian'
   - role: roles/rust
     tags: [packages]
+  - role: roles/fly
+    tags: [packages]
   tasks:
   - name: Dump hostvars
     tags: [never, dump]
     debug:
       var: hostvars[inventory_hostname]
-  - name: Ensure fly
-    tags: [packages]
-    get_url:
-      url: "{{ fly_url }}"
-      dest: "{{ lookup('env', 'HOME') }}/.local/bin/fly"
-      mode: "u=rwx,g=rx,o=rx"
   - name: Ensure helm diff
     tags: [packages]
     kubernetes.core.helm_plugin:
