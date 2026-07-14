@@ -4,8 +4,8 @@
     use: systemd
 
 - name: Ensure tools to add additional apt sources
-  tags: [repos]
   become: yes
+  tags: [base]
   package:
     name:
     - ca-certificates

@@ -68,6 +68,7 @@ To restrict the scope of execution the playbook uses a couple of tags as describ
 |===
 | Tag | Scope description
 
+| base | Install install-utils, needed to make the other installs work
 | repos | Install 3rd party apt-repositories (only useful on linux)
 | packages | Install system-packages
 | dotfiles | Install my dotfiles and apply them

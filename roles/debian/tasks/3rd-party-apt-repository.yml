@@ -1,5 +1,6 @@
 - name: "Download key for {{ item.name }}"
   become: yes
+  tags: [repos]
   get_url:
     url: "{{ key.url }}"
     dest: "/etc/apt/keyrings/{{ key.name | default(item.name) }}.{{ key.format | default('asc') }}"
@@ -10,6 +11,7 @@
 
 - name: "Setup apt repository for {{ item.name }}"
   become: yes
+  tags: [repos]
   deb822_repository:
     name: "{{ item.name }}"
     types: "{{ item.types | default('deb') }}"
